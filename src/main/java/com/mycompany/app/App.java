@@ -12,14 +12,18 @@ import spark.template.mustache.MustacheTemplateEngine;
 
 public class App
 {
-    public static boolean search(ArrayList<Integer> array, int e) {
-      System.out.println("inside search");
-      if (array == null) return false;
-
-      for (int elt : array) {
-        if (elt == e) return true;
-      }
-      return false;
+    public static boolean search(ArrayList<String> array, int e, char k) {
+	int counter=0;      
+	System.out.println("functional search");
+	if(e == 0) return false;
+        for (String elt:array){
+		for(int i = 0; i < elt.length();i++){
+			if(elt.charAt(i)==k) counter++;
+		}
+		if(counter >= e) return true;
+	counter = 0;
+	}
+	return false;
     }
 
     public static void main(String[] args) {
