@@ -38,10 +38,10 @@ public class App
           String input1 = req.queryParams("input1");
           java.util.Scanner sc1 = new java.util.Scanner(input1);
           sc1.useDelimiter("[;\r\n]+");
-          java.util.ArrayList<Integer> inputList = new java.util.ArrayList<>();
+          java.util.ArrayList<String> inputList = new java.util.ArrayList<>();
           while (sc1.hasNext())
           {
-            int value = Integer.parseInt(sc1.next().replaceAll("\\s",""));
+            String value = sc1.next().replaceAll("\\s","");
             inputList.add(value);
           }
           System.out.println(inputList);
@@ -50,7 +50,10 @@ public class App
           String input2 = req.queryParams("input2").replaceAll("\\s","");
           int input2AsInt = Integer.parseInt(input2);
 
-          boolean result = App.search(inputList, input2AsInt);
+	  String input3 = req.queryParams("input3").replaceAll("\\s","");
+          
+
+          boolean result = App.search(inputList, input2AsInt,input3.charAt(0));
 
          Map map = new HashMap();
           map.put("result", result);
